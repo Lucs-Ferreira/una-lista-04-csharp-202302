@@ -1,0 +1,25 @@
+class Program
+    {
+        static void Main(string[] args)
+        {
+            int nota;
+            bool validacao = false;
+
+            do
+            {
+                Console.WriteLine("Digite uma nota entre 0 e 10:");
+                nota = Convert.ToInt32(Console.ReadLine());
+                if (nota >= 0 && nota <= 10)
+                {
+                    validacao = true;
+                }
+                else
+                {
+                    Console.WriteLine("NOTA INVÁLIDA!!");
+                }
+
+            } while (!validacao);
+
+            Console.WriteLine("NOTA INSERIDA COM SUCESSO!");
+        }
+    }
