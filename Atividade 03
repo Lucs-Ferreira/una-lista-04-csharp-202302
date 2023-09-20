@@ -1,0 +1,69 @@
+class Program
+    {
+        static void Main(string[] args)
+        {
+            string nome, sexo, estadoCivil;
+            int idade;
+            double salario;
+            bool validacao = false;
+
+            do
+            {
+                Console.WriteLine("Digite seu nome: ");
+                nome = Convert.ToString(Console.ReadLine());
+
+                if (nome.Length > 3)
+                {
+                    Console.WriteLine("Digite sua idade: ");
+                    idade = Convert.ToInt32(Console.ReadLine());
+
+                    if (idade >= 0 && idade <= 150)
+                    {
+                        Console.WriteLine("Digite seu salário: ");
+                        salario = Convert.ToDouble(Console.ReadLine());
+
+                        if (salario > 0)
+                        {
+                            Console.WriteLine("Digite seu sexo: ");
+                            sexo = Convert.ToString(Console.ReadLine());
+
+                            if (sexo == "f" || sexo == "m")
+                            {
+                                Console.WriteLine("Digite seu Estado Civil: ");
+                                estadoCivil = Convert.ToString(Console.ReadLine());
+
+                                if (estadoCivil == "s" || estadoCivil == "c" || estadoCivil == "v" || estadoCivil == "d")
+                                {
+                                    validacao = true;
+                                }
+                                else
+                                {
+                                    validacao = false;
+                                    Console.WriteLine("DADOS INVÁLIDOS!");
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("SEXO INVÁLIDO!");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("SALÁRIO INVÁLIDO!");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("IDADE INVÁLIDA!");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("NOME INVÁLIDO!");
+                }
+
+            } while (validacao == false);
+
+            Console.WriteLine("DADOS ARMAZENADOS!");
+        }
+    }
