@@ -1,0 +1,30 @@
+class Program
+    {
+        static void Main(string[] args)
+        {
+            string usuario, senha;
+            bool validacao = false;
+            do
+            {
+                Console.WriteLine("Digite o seu usuário: ");
+                usuario = Convert.ToString(Console.ReadLine());
+
+                Console.WriteLine("Digite a sua senha: ");
+                senha = Convert.ToString(Console.ReadLine());
+
+                if (usuario == senha)
+                {
+                    validacao = false;
+                    Console.WriteLine("A SENHA NÃO PODE SER IGUAL AO USUÁRIO!!");
+                }
+                else
+                {
+                    validacao = true;
+                }
+
+            } while (validacao == false);
+
+            Console.WriteLine("DADOS ARMAZENADOS COM SUCESSO!!");
+
+        }
+    }
