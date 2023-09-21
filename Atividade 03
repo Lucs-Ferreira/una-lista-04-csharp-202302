@@ -1,69 +1,55 @@
 class Program
+{
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        string nome, sexo, estadoCivil;
+        int idade;
+        double salario;
+
+        while (true)
         {
-            string nome, sexo, estadoCivil;
-            int idade;
-            double salario;
-            bool validacao = false;
+            Console.WriteLine("Digite seu nome: ");
+            nome = Console.ReadLine();
 
-            do
+            if (nome.Length <= 3)
             {
-                Console.WriteLine("Digite seu nome: ");
-                nome = Convert.ToString(Console.ReadLine());
+                Console.WriteLine("NOME INVÁLIDO!");
+                continue;
+            }
 
-                if (nome.Length > 3)
-                {
-                    Console.WriteLine("Digite sua idade: ");
-                    idade = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Digite sua idade: ");
+            if (!int.TryParse(Console.ReadLine(), out idade) || idade < 0 || idade > 150)
+            {
+                Console.WriteLine("IDADE INVÁLIDA!");
+                continue;
+            }
 
-                    if (idade >= 0 && idade <= 150)
-                    {
-                        Console.WriteLine("Digite seu salário: ");
-                        salario = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Digite seu salário: ");
+            if (!double.TryParse(Console.ReadLine(), out salario) || salario <= 0)
+            {
+                Console.WriteLine("SALÁRIO INVÁLIDO!");
+                continue;
+            }
 
-                        if (salario > 0)
-                        {
-                            Console.WriteLine("Digite seu sexo: ");
-                            sexo = Convert.ToString(Console.ReadLine());
+            Console.WriteLine("Digite seu sexo (f/m): ");
+            sexo = Console.ReadLine().ToLower();
+            if (sexo != "f" && sexo != "m")
+            {
+                Console.WriteLine("SEXO INVÁLIDO!");
+                continue;
+            }
 
-                            if (sexo == "f" || sexo == "m")
-                            {
-                                Console.WriteLine("Digite seu Estado Civil: ");
-                                estadoCivil = Convert.ToString(Console.ReadLine());
-
-                                if (estadoCivil == "s" || estadoCivil == "c" || estadoCivil == "v" || estadoCivil == "d")
-                                {
-                                    validacao = true;
-                                }
-                                else
-                                {
-                                    validacao = false;
-                                    Console.WriteLine("DADOS INVÁLIDOS!");
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("SEXO INVÁLIDO!");
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine("SALÁRIO INVÁLIDO!");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("IDADE INVÁLIDA!");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("NOME INVÁLIDO!");
-                }
-
-            } while (validacao == false);
-
-            Console.WriteLine("DADOS ARMAZENADOS!");
+            Console.WriteLine("Digite seu Estado Civil (s/c/v/d): ");
+            estadoCivil = Console.ReadLine().ToLower();
+            if (estadoCivil != "s" && estadoCivil != "c" && estadoCivil != "v" && estadoCivil != "d")
+            {
+                Console.WriteLine("ESTADO CIVIL INVÁLIDO!");
+                continue;
+            }
+            
+            break;
         }
+
+        Console.WriteLine("DADOS ARMAZENADOS!");
     }
+}
