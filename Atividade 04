@@ -1,0 +1,21 @@
+class Program
+{
+    static void Main(string[] args)
+    {
+        double num = 0, soma = 0, media;
+        int i = 0;
+        do
+        {
+            i++;
+            Console.WriteLine("Digite o "+i+"º número:");
+            num = Convert.ToInt32(Console.ReadLine());
+
+            soma = soma + num;
+            media = soma / 5;
+
+        } while (i < 5);
+
+        Console.WriteLine("\nO valor da SOMA é: "+soma);
+        Console.WriteLine("O valor da MÉDIA é: "+media);
+    }
+}
