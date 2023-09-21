@@ -1,0 +1,31 @@
+class Program
+{
+    static void Main(string[] args)
+    {
+        int impar = 0, opcao;
+        do
+        {
+            Console.WriteLine("Digite 1 para iniciar a contagem");
+            opcao = Convert.ToInt32(Console.ReadLine());
+
+            if (opcao == 1)
+            {
+                do
+                {
+                    impar++;
+
+                    if (impar % 2 == 1)
+                    {
+                        Console.WriteLine("O número " + impar + " é impar!");
+                    }
+
+                } while (impar < 50);
+            }
+            else
+            {
+                Console.WriteLine("OPÇÃO INVÁLIDA!");
+            }
+        } while (opcao != 1);
+
+    }
+}
